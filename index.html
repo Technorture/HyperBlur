@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#05070b">
+<meta name="description" content="TECHNORTURE - Xiaomi HyperOS and MIUI applications, tools and resources.">
+
+<title>Technorture - Official Website</title>
+
+<style>
+:root {
+    --bg: #05070b;
+    --surface: #0b1019;
+    --surface-hover: #101a29;
+    --border: #1b293b;
+    --blue: #2785ff;
+    --blue-hover: #0865db;
+    --text: #f4f7fc;
+    --muted: #8491a3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 30px;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 50% -20%, #10213b 0%, transparent 55%),
+        var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+
+    /* SMOOTH SCROLLING */
+    overflow-x: hidden;
+    overscroll-behavior-y: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* HEADER */
+
+header {
+    width: 100%;
+    min-height: 100px;
+    padding: 22px 8%;
+    border-bottom: 1px solid var(--border);
+    background: rgba(5, 7, 11, 0.92);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.header-notice {
+    padding-left: 13px;
+    border-left: 2px solid var(--blue);
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+    max-width: 550px;
+}
+
+.header-notice strong {
+    color: var(--blue);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* YOUTUBE */
+
+.youtube-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 17px;
+    border: 1px solid #252d3a;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: 0.25s;
+}
+
+.youtube-link svg {
+    width: 22px;
+    height: 22px;
+    fill: #ff0033;
+}
+
+.youtube-link:hover {
+    border-color: #ff0033;
+    background: rgba(255, 0, 51, 0.08);
+}
+
+/* MAIN SECTION */
+
+.apps {
+    max-width: 1500px;
+    margin: auto;
+    padding: 75px 8% 110px;
+}
+
+.section-label {
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.apps h2 {
+    font-size: clamp(28px, 4vw, 38px);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.section-desc {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 42px;
+}
+
+/* GRID */
+
+.app-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* CARDS */
+
+.app-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 27px;
+    background: linear-gradient(145deg, #0d1420, #090d14);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--blue);
+    background: linear-gradient(145deg, #111e31, #0a101a);
+}
+
+/* ICONS */
+
+.app-icon {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #131e2e;
+    border: 1px solid #20334c;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 23px;
+}
+
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+}
+
+.folder-icon {
+    font-size: 32px;
+}
+
+/* CARD TEXT */
+
+.app-card h3 {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 9px;
+}
+
+.app-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+
+/* DOWNLOAD BUTTON */
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: auto;
+    padding: 12px 20px;
+    background: var(--blue);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    transition: 0.25s;
+}
+
+.app-card > .download-btn {
+    margin-top: 25px;
+}
+
+.download-btn:hover {
+    background: var(--blue-hover);
+    border-color: var(--blue-hover);
+    box-shadow: 0 5px 20px rgba(39, 133, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* FILE COLLECTION */
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.file-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 13px;
+    background: #101722;
+    border: 1px solid #202c3c;
+    border-radius: 6px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 11px;
+    transition: 0.25s;
+}
+
+.file-btn span:last-child {
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.file-btn:hover {
+    background: #14243a;
+    border-color: var(--blue);
+    transform: translateX(3px);
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    color: #687589;
+    font-size: 11px;
+}
+
+footer span {
+    color: var(--blue);
+}
+
+/* ACCESSIBILITY */
+
+a:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+    .app-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    header {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .apps {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 22px 6%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .youtube-link {
+        width: 100%;
+    }
+
+    .apps {
+        padding: 50px 6% 75px;
+    }
+
+    .app-container {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .app-card {
+        padding: 23px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="header-brand">
+
+        <div class="logo">
+            TECH<span>NORTURE</span>
+        </div>
+
+        <div class="header-notice">
+            <strong>⚠ IMPORTANT NOTICE</strong><br>
+            Only download and install APK files provided on TECHNORTURE.
+            These APKs are modified and patched for Xiaomi firmware
+            compatibility without requiring an unlocked bootloader.
+        </div>
+
+    </div>
+
+    <a href="https://www.youtube.com/@YOUR_CHANNEL"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="youtube-link">
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+        </svg>
+
+        <span>TECHNORTURE - SUBSCRIBE</span>
+
+    </a>
+
+</header>
+
+<!-- DOWNLOAD SECTION -->
+
+<main>
+
+<section class="apps" id="apps">
+
+    <div class="section-label">TECHNORTURE / DOWNLOAD CENTER</div>
+
+    <h2>Hyper Blur</h2>
+
+    <p class="section-desc">
+        Applications, modifications and resources for Xiaomi devices.
+        Select your preferred download below.
+    </p>
+
+    <div class="app-container">
+
+        <!-- SHIZUKU -->
+
+        <article class="app-card">
+
+            <div class="app-icon">
+                <img src="shizukunext.png" alt="Shizuku Next Logo">
+            </div>
+
+            <h3>Shizuku Next - Technorture</h3>
+
+            <p>
+                Shizuku Next application for compatible Xiaomi devices.
+            </p>
+
+            <a href="downloads/Shizuku%20Next%20-%20Technorture.apk"
+               class="download-btn"
+               download>
+                DOWNLOAD <span>↓</span>
+            </a>
+
+        </article>
+
+        <!-- GHOSTLOCK -->
+
+        <article class="app-card">
+
+            <div class="app-icon">
+                <img src="ghostlock.png" alt="GhostLock Logo">
+            </div>
+
+            <h3>GhostLock - Technorture</h3>
+
+            <p>
+                GhostLock application for compatible devices.
+            </p>
+
+            <a href="downloads/GhostLock%20-%20Technorture.apk"
+               class="download-btn"
+               download>
+                DOWNLOAD <span>↓</span>
+            </a>
+
+        </article>
+
+        <!-- KERNELSU -->
+
+        <article class="app-card">
+
+            <div class="app-icon">
+                <img src="kernelsu.png" alt="KernelSU Logo">
+            </div>
+
+            <h3>KernelSU - Technorture</h3>
+
+            <p>
+                KernelSU application and related resources.
+            </p>
+
+            <a href="downloads/KernelSU%20-%20Technorture.apk"
+               class="download-btn"
+               download>
+                DOWNLOAD <span>↓</span>
+            </a>
+
+        </article>
+
+        <!-- FILE COLLECTION -->
+
+        <article class="app-card">
+
+            <div class="app-icon folder-icon">
+                📁
+            </div>
+
+            <h3>Files & Resources</h3>
+
+            <p>
+                Choose the file compatible with your MIUI or HyperOS version.
+            </p>
+
+            <div class="file-list">
+
+                <a href="downloads/HyperOS%203.1.zip"
+                   class="file-btn" download>
+                    <span>📄 HyperOS 3.1</span>
+                    <span>DOWNLOAD ↓</span>
+                </a>
+
+                <a href="downloads/HyperOS%203.0.zip"
+                   class="file-btn" download>
+                    <span>📄 HyperOS 3.0</span>
+                    <span>DOWNLOAD ↓</span>
+                </a>
+
+                <a href="downloads/HyperOS%202.0.zip"
+                   class="file-btn" download>
+                    <span>📄 HyperOS 2.0</span>
+                    <span>DOWNLOAD ↓</span>
+                </a>
+
+                <a href="downloads/HyperOS%201.0.zip"
+                   class="file-btn" download>
+                    <span>📄 HyperOS 1.0</span>
+                    <span>DOWNLOAD ↓</span>
+                </a>
+
+                <a href="downloads/MIUI%2014.zip"
+                   class="file-btn" download>
+                    <span>📄 MIUI 14</span>
+                    <span>DOWNLOAD ↓</span>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>© 2026 <span>TECHNORTURE</span>. All rights reserved.</div>
+
+    <div>Built for Xiaomi enthusiasts.</div>
+
+</footer>
+
+</body>
+</html>
